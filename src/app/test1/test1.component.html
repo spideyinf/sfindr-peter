@@ -1,0 +1,57 @@
+<h1>Test 1</h1>
+
+<p>
+  Create a reactive form with the following fields:
+</p>
+
+<ul>
+  <li><strong>name</strong>: text input</li>
+  <li><strong>type</strong>: dropdown with values: 'Car', 'Bike'</li>
+</ul>
+
+<p>
+  When a value in the <strong>type</strong> dropdown is selected, another field
+  should be added based on the type. If it's "car", add a text input with the
+  name <strong>brand</strong>. If it's "bike", add a text input with the name
+  <strong>color</strong>. Be sure to remove the other input, when the type
+  changes, so that its value is <u>not part of the result object</u>.
+</p>
+
+<p>
+  All fields are required.
+</p>
+
+<p>
+  A submit button should call the injected service with the value of the form, but should
+  only be enabled if the form is valid.
+</p>
+
+<form>
+  <div>
+    Name:
+    <input name="name">
+  </div>
+
+  <div>
+    Type:
+    <select name="type">
+      <option></option>
+      <option value="car">Car</option>
+      <option value="bike">Bike</option>
+    </select>
+  </div>
+
+  <div *ngIf="true">
+    <!-- only show if "type" is "car" -->
+    Brand:
+    <input name="brand">
+  </div>
+
+  <div *ngIf="true">
+    <!-- only show if "type" is "bike" -->
+    Color:
+    <input name="color">
+  </div>
+
+  <button (click)="$event.preventDefault();">Submit</button>
+</form>

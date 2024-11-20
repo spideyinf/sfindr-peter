@@ -1,0 +1,22 @@
+<h1>Test 1</h1>
+
+<p>
+  Create a search input that triggers an API call
+</p>
+
+<p>
+  The API call should go to: https://600fe4d46c21e1001704f951.mockapi.io/Search
+</p>
+
+<p>
+  When typing, the API call should only trigger after the user has not typed
+  anything for 500ms. While an API call is running, a loading indicator should
+  appear. When the API call is not running, it should show the response from the
+  API call (which will always be the same)
+</p>
+
+<div>
+  Search
+  <input/>
+  <div *ngIf="loading">loading...</div>
+</div>

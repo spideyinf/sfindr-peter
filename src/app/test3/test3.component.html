@@ -1,0 +1,24 @@
+<h1>Test 3</h1>
+
+<p>
+  Improve component performance
+</p>
+
+<p>
+  There is an issue with this page. Data is fetched from the server every 5 seconds,
+  but whenever new data is fetched, it takes the browser about 1.5s to render all of the rows.
+  This is because of a heavy calculation that is done in the HeavyComponent that it renders for each row.
+</p>
+
+<p>
+  Accepting the fact that the calculation must by done at least once for each row, so the initial load will
+  remain slow how can we make sure that subsequent updates do not retrigger this calculation
+  <em>without changing HeavyComponent</em> and <em>without making changes to the <code>rows$</code>
+  observable or its source</em>?
+</p>
+
+<div>
+  <div *ngFor="let row of rows$|async">
+    <app-heavy [row]="row"></app-heavy>
+  </div>
+</div>
