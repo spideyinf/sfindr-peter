@@ -14,11 +14,11 @@
   Accepting the fact that the calculation must by done at least once for each row, so the initial load will
   remain slow how can we make sure that subsequent updates do not retrigger this calculation
   <em>without changing HeavyComponent</em> and <em>without making changes to the <code>rows$</code>
-  observable or its source</em>?
+    observable or its source</em>?
 </p>
 
 <div>
-  <div *ngFor="let row of rows$|async">
+  <div *ngFor="let row of rows$ | async">
     <app-heavy [row]="row"></app-heavy>
   </div>
 </div>

@@ -26,32 +26,36 @@
   only be enabled if the form is valid.
 </p>
 
-<form>
+<form [formGroup]="form" (ngSubmit)="submit(form.value)">
   <div>
     Name:
-    <input name="name">
+    <input name="name" formControlName="name">
   </div>
 
   <div>
     Type:
-    <select name="type">
-      <option></option>
+    <select name="type" formControlName="type">
+      <option value="">Select a type</option>
       <option value="car">Car</option>
       <option value="bike">Bike</option>
     </select>
   </div>
 
-  <div *ngIf="true">
-    <!-- only show if "type" is "car" -->
+  <!-- only show if "type" is "car" -->
+  @if (form.get('type')!.value === 'car') {
+  <div>
     Brand:
-    <input name="brand">
+    <input name="brand" formControlName="brand">
   </div>
+  }
 
-  <div *ngIf="true">
-    <!-- only show if "type" is "bike" -->
+  <!-- only show if "type" is "bike" -->
+  @if (form.get('type')!.value === 'bike') {
+  <div>
     Color:
-    <input name="color">
+    <input name="color" formControlName="color">
   </div>
+  }
 
-  <button (click)="$event.preventDefault();">Submit</button>
+  <button [disabled]="form.invalid">Submit</button>
 </form>
