@@ -1,4 +1,4 @@
-<h1>Test 1</h1>
+<h1>Test 2</h1>
 
 <p>
   Create a search input that triggers an API call
@@ -17,6 +17,9 @@
 
 <div>
   Search
-  <input/>
-  <div *ngIf="loading">loading...</div>
-</div>
+  <input type="text" name="search" #search (input)="onSearchInputChange(search.value)" placeholder="Search by name" />
+  @if (loading$ | async) {
+  <div>loading...</div>
+  } @else {
+  <div>{{ output }}</div>
+  }

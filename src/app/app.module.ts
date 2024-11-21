@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { Test3Component } from './test3/test3.component';
 import { HeavyComponent } from './test3/heavy/heavy.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
@@ -22,6 +23,7 @@ import { HeavyComponent } from './test3/heavy/heavy.component';
     Test3Component,
     HeavyComponent,
   ],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
